@@ -8,25 +8,37 @@ namespace Assignment2_3_1
         // Read the details from same file and print on console.
         static void Main(string[] args)
         {
-            string name = "Elijah";
+            string name = "Elijah Rogers";
             string age = "30";
             string address = "Place In US";
-            string filePath =  @"Test.txt";
+            string filePath = @"C:\Users\Elijah Rogers\source\repos\Assignment2_3_1\Test.txt"; //Used absolute path for testing purposes
             List<string> infoList = new List<string>();
             List<Person> personList = new List<Person>();
 
-            /* Uses streamwriter and reader from Microsoft .NET doc of File example
-            if (File.Exists(filePath))
+            // Uses streamwriter and reader from Microsoft .NET doc of File example
+            if (!File.Exists(filePath))
             {
-               using(StreamWriter sw = new StreamWriter(filePath))
+                // Create new file at file path is it doesnt exsist 
+               using(StreamWriter sw = File.CreateText(filePath))
                {
                     sw.WriteLine($"Name: {name}");
                     sw.WriteLine($"Age: {age}");
                     sw.WriteLine($"Address: {address}");
                 }
             }
+            else
+            {
+                // If file exsists write name age and addess strings to file
+                using (StreamWriter sw = new StreamWriter(filePath))
+                {
+                    sw.WriteLine($"Name: {name}");
+                    sw.WriteLine($"Age: {age}");
+                    sw.WriteLine($"Address: {address}");
+                }
+            }
 
-            using (StreamReader sr = File.OpenText(filePath))
+            // Creates a StreamReader on file path and uses while loop to write out each line
+            using (StreamReader sr = new StreamReader(filePath))
             {
                 string s;
                 while ((s = sr.ReadLine()) != null)
@@ -34,7 +46,8 @@ namespace Assignment2_3_1
                     Console.WriteLine(s);
                 }
             }
-            */
+            
+            /* Old File. Code
 
             // Writes to file initially
             File.WriteAllText(filePath, $"{ name },{ age },{ address }");
@@ -82,6 +95,7 @@ namespace Assignment2_3_1
                 Console.WriteLine($"Age: {splitLine[1]}");
                 Console.WriteLine($"Address: {splitLine[2]}");
             }
+            */
 
         }
     }
