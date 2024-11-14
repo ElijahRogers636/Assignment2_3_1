@@ -11,7 +11,7 @@ namespace Assignment2_3_1
             string name = "Elijah";
             string age = "30";
             string address = "Place In US";
-            string filePath =  @"C:\Users\Elijah Rogers\source\repos\Assignment2_3_1\Test.txt";
+            string filePath =  @"Test.txt";
             List<string> infoList = new List<string>();
             List<Person> personList = new List<Person>();
 
