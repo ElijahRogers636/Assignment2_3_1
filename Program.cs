@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 
 namespace Assignment2_3_1
 {
@@ -19,8 +19,8 @@ namespace Assignment2_3_1
             if (!File.Exists(filePath))
             {
                 // Create new file at file path is it doesnt exsist 
-               using(StreamWriter sw = File.CreateText(filePath))
-               {
+                using (StreamWriter sw = File.CreateText(filePath))
+                {
                     sw.WriteLine($"Name: {name}");
                     sw.WriteLine($"Age: {age}");
                     sw.WriteLine($"Address: {address}");
@@ -37,6 +37,13 @@ namespace Assignment2_3_1
                 }
             }
 
+            /* Shorthand 
+            using (StreamWriter sw = new(filePath))
+            {
+                sw.WriteLine("Some text");
+            }
+            */
+
             // Creates a StreamReader on file path and uses while loop to write out each line
             using (StreamReader sr = new StreamReader(filePath))
             {
@@ -46,7 +53,9 @@ namespace Assignment2_3_1
                     Console.WriteLine(s);
                 }
             }
+
             
+
             /* Old File. Code
 
             // Writes to file initially
